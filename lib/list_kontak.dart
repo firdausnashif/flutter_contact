@@ -17,7 +17,7 @@ class _ListKontakPageState extends State<ListKontakPage> {
 
   @override
   void initState() {
-    //menjalankan fungsi getallkontak saat pertama kali dimuat
+
     _getAllKontak();
     super.initState();
   }
@@ -28,7 +28,7 @@ class _ListKontakPageState extends State<ListKontakPage> {
 
       appBar: AppBar(
         title: Center(
-          child: Text("Kontak App"),
+          child: Text("Aplikasi Kontak"),
         ),
       ),
       body: ListView.builder(
@@ -76,7 +76,7 @@ class _ListKontakPageState extends State<ListKontakPage> {
                   fit: BoxFit.fill,
                   child: Row(
                     children: [
-                      // button edit
+
                       IconButton(
                           onPressed: () {
                             _openFormEdit(kontak);
@@ -87,7 +87,7 @@ class _ListKontakPageState extends State<ListKontakPage> {
                       IconButton(
                         icon: Icon(Icons.delete),
                         onPressed: (){
-                          //membuat dialog konfirmasi hapus
+
                           AlertDialog hapus = AlertDialog(
                             title: Text("Information"),
                             content: Container(
@@ -100,9 +100,7 @@ class _ListKontakPageState extends State<ListKontakPage> {
                                 ],
                               ),
                             ),
-                            //terdapat 2 button.
-                            //jika ya maka jalankan _deleteKontak() dan tutup dialog
-                            //jika tidak maka tutup dialog
+
                             actions: [
                               TextButton(
                                   onPressed: (){
@@ -128,7 +126,7 @@ class _ListKontakPageState extends State<ListKontakPage> {
               ),
             );
           }),
-      //membuat button mengapung di bagian bawah kanan layar
+
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: (){
@@ -141,24 +139,19 @@ class _ListKontakPageState extends State<ListKontakPage> {
 
   //mengambil semua data Kontak
   Future<void> _getAllKontak() async {
-    //list menampung data dari database
+
     var list = await db.getAllKontak();
 
-    //ada perubahanan state
     setState(() {
-      //hapus data pada listKontak
       listKontak.clear();
 
-      //lakukan perulangan pada variabel list
       list!.forEach((kontak) {
 
-        //masukan data ke listKontak
         listKontak.add(Kontak.fromMap(kontak));
       });
     });
   }
 
-  //menghapus data Kontak
   Future<void> _deleteKontak(Kontak kontak, int position) async {
     await db.deleteKontak(kontak.id!);
     setState(() {
@@ -166,7 +159,6 @@ class _ListKontakPageState extends State<ListKontakPage> {
     });
   }
 
-  // membuka halaman tambah Kontak
   Future<void> _openFormCreate() async {
     var result = await Navigator.push(
         context, MaterialPageRoute(builder: (context) => FormKontak()));
@@ -175,7 +167,6 @@ class _ListKontakPageState extends State<ListKontakPage> {
     }
   }
 
-  //membuka halaman edit Kontak
   Future<void> _openFormEdit(Kontak kontak) async {
     var result = await Navigator.push(context,
         MaterialPageRoute(builder: (context) => FormKontak(kontak: kontak)));
