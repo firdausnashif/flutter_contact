@@ -54,7 +54,7 @@ class _FormKontakState extends State<FormKontak> {
             child: TextField(
               controller: name,
               decoration: InputDecoration(
-                  labelText: 'Name',
+                  labelText: 'masukkan nama',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   )),
@@ -67,7 +67,7 @@ class _FormKontakState extends State<FormKontak> {
             child: TextField(
               controller: mobileNo,
               decoration: InputDecoration(
-                  labelText: 'Mobile No',
+                  labelText: 'masukkan no. hp',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   )),
@@ -80,7 +80,7 @@ class _FormKontakState extends State<FormKontak> {
             child: TextField(
               controller: email,
               decoration: InputDecoration(
-                  labelText: 'Email',
+                  labelText: 'masukkan email',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   )),
@@ -93,7 +93,7 @@ class _FormKontakState extends State<FormKontak> {
             child: TextField(
               controller: company,
               decoration: InputDecoration(
-                  labelText: 'Company',
+                  labelText: 'masukkan nama perusahaan',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   )),
@@ -106,7 +106,7 @@ class _FormKontakState extends State<FormKontak> {
             child: ElevatedButton(
               child: (widget.kontak == null)
                   ? Text(
-                'Add',
+                'Tambahs',
                 style: TextStyle(color: Colors.white),
               )
                   : Text(
