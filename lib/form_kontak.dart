@@ -106,7 +106,7 @@ class _FormKontakState extends State<FormKontak> {
             child: ElevatedButton(
               child: (widget.kontak == null)
                   ? Text(
-                'Tambahs',
+                'Tambah',
                 style: TextStyle(color: Colors.white),
               )
                   : Text(
